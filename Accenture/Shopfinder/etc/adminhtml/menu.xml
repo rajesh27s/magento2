@@ -1,0 +1,26 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!--<add id="Accenture_Shopfinder::shop" 
+             title="Shop Finder" module="Accenture_Shopfinder" 
+             sortOrder="10" 
+             resource="Accenture_Shopfinder::shop" parent="Magento_Backend::content"
+        />
+        <add id="Accenture_Shopfinder::shopfinder_shop" title="Manage Shop" module="Accenture_Shopfinder" sortOrder="10" parent="Accenture_Shopfinder::shop" action="shopfinderadmin/shop" resource="Accenture_Shopfinder::shop"/>
+        <add id="Accenture_Shopfinder::settings" title="Shop Settings" module="Accenture_Shopfinder" sortOrder="20" parent="Accenture_Shopfinder::shop" action="adminhtml/system_config/edit/section/shop" resource="Accenture_Shopfinder::settings"/>-->
+
+        <add id="Accenture_Shopfinder"
+             title="Shopfinder"
+             module="Accenture_Shopfinder"
+             sortOrder="9999"
+             resource="Accenture_Shopfinder::shop" 
+             parent="Magento_Backend::content_elements"
+             action="shopfinder/shop/index"
+             
+        />   
+
+        <!--<add id="Accenture_Shopfinder::newcontent" 
+        title="New Content" translate="title" 
+        module="Accenture_Shopfinder" sortOrder="50" 
+        resource="Accenture_Shopfinder::shop"/>-->
+    </menu>
+</config>

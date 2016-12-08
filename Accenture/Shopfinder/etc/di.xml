@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="ShopfinderShopGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="ShopfinderShopGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Accenture\Shopfinder\Model\ResourceModel\Shop\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ShopfinderShopGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Accenture\Shopfinder\Model\ResourceModel\Shop\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">shop</argument>
+            <argument name="eventPrefix" xsi:type="string">shopfinder_shop_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">shop_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Accenture\Shopfinder\Model\ResourceModel\Shop</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="shopfinder_shop_listing_data_source" xsi:type="string">Accenture\Shopfinder\Model\ResourceModel\Shop\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    
+    <!-- Rest Api -->
+    
+    <preference for="Accenture\Shopfinder\Api\Data\ShopInterface" 
+                type="Accenture\Shopfinder\Model\Shop" />
+    <preference for="Accenture\Shopfinder\Api\ShopRepositoryInterface"
+                type="Accenture\Shopfinder\Model\ShopRepository" />
+    
+    <preference for="Accenture\Shopfinder\Api\Data\ShopSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <!-- Logger DB --> 
+    <!--
+    <preference for="Magento\Framework\DB\LoggerInterface" type="Magento\Framework\DB\Logger\File"/>
+    <type name="Magento\Framework\DB\Logger\File">
+        <arguments>
+            <argument name="logAllQueries" xsi:type="boolean">true</argument>       
+        </arguments>
+    </type>
+    -->
+      
+
+
+</config>

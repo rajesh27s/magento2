@@ -1,0 +1,27 @@
+{
+    "name": "accenture/shopfinder",
+    "description": "Shopfinder Magento2 Extension",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0"
+    },
+    "type": "magento2-module",
+    "version": "100.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+     "authors": [
+    {
+      "name": "Rajesh Sundaramurthy",
+      "Company": "Accenture Digital",
+      "website": "http://www.accenture.com/",
+      "role": "Senior Developer"
+    }
+  ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Accenture\\Shopfinder\\": ""
+        }
+    }
+}
