@@ -1,1 +1,1 @@
-# Innuendo - Vendor_Extension
+# shop finder
